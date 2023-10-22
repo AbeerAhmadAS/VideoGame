@@ -38,5 +38,10 @@ public class GameController implements IGameController {
         return iGameService.getGamerById(gameID);
     }
 ///////////////////////////////PUT////////////////////////////////////////////////
+      @PutMapping("/Games/{gameID}")
+      @ResponseStatus(HttpStatus.NO_CONTENT)
+      public void updateGame(@RequestBody @Valid Game game, @PathVariable Integer gameID) {
+           iGameService.updateGame(game,gameID);
+}
 
 }

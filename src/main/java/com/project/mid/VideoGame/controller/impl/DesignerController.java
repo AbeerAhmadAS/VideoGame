@@ -36,6 +36,12 @@ public class DesignerController implements IDedignerController {
     public Designer getDesignerById(@PathVariable Integer designerID){
         return iDesignerService.getDesignerById(designerID);
     }
+    /////////////////////////////PUT//////////////////////////////////////////////
+    @PutMapping("/designer/{designerID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateDesigner(@RequestBody @Valid Designer designer, @PathVariable Integer designerID) {
+        iDesignerService.updateDesigner(designer, designerID);
+    }
 
 
 }

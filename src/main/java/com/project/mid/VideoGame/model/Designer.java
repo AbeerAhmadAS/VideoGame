@@ -20,4 +20,8 @@ public class Designer {
     @Email(message = "the Email invalid")
     private  String designerEmail;
     private String designerNationality;
+
+    public void setDesignerID(Integer designerID) {
+        this.designerID = designerID;
+    }
 }

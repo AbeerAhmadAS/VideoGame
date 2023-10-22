@@ -27,4 +27,7 @@ public class Game {
     @OneToOne
     private Designer designer;
 
+    public void setGameID(Integer gameID) {
+        this.gameID = gameID;
+    }
 }
