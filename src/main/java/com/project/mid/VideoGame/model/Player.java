@@ -9,8 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Player {
     @Id
@@ -18,7 +18,7 @@ public class Player {
     @Embedded
     PlayerInforamtion playerInforamtion;
 
-    @ManyToOne
-    private Game game;
+
+
 
 }
