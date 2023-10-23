@@ -27,17 +27,23 @@ public class GameController implements IGameController {
         gameRepository.save(game);
     }
    ///////////////////////////////////GET/////////////////////////////////////////////////
+    //GET ALL GAMES
     @GetMapping("/Games")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Game> grtAllGames(){
         return  gameRepository.findAll();
     }
+    //GET GAME BY ID
     @GetMapping("/Games/{gameID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Game getGameById(@PathVariable Integer gameID){
         return iGameService.getGamerById(gameID);
     }
-///////////////////////////////PUT////////////////////////////////////////////////
+
+    //BY NAME OF GAME RETURN THE OF DESIGNER
+
+
+    ///////////////////////////////PUT////////////////////////////////////////////////
       @PutMapping("/Games/{gameID}")
       @ResponseStatus(HttpStatus.NO_CONTENT)
       public void updateGame(@RequestBody @Valid Game game, @PathVariable Integer gameID) {

@@ -26,16 +26,20 @@ public class DesignerController implements IDedignerController {
         designerRepository.save(designer);
     }
     ////////////////////////GET///////////////////////////////////////////
+    //GET BY ALL DESIGNER
     @GetMapping("/designer")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Designer> grtAllDesigner(){
         return  designerRepository.findAll();
     }
+    //GET BY ID
     @GetMapping("/designer/{designerID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Designer getDesignerById(@PathVariable Integer designerID){
         return iDesignerService.getDesignerById(designerID);
     }
+    //BY NAME OF GAME RETURN THE OF DESIGNER
+
     /////////////////////////////PUT//////////////////////////////////////////////
     @PutMapping("/designer/{designerID}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

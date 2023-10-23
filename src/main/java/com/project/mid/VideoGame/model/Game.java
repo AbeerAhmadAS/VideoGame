@@ -1,8 +1,6 @@
 package com.project.mid.VideoGame.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
@@ -16,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Game {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer gameID;
     @NotEmpty(message = "ops!! the Name is Empty")
     private String gameName;

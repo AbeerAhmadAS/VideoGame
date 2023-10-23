@@ -1,7 +1,6 @@
 package com.project.mid.VideoGame.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -14,12 +13,13 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Designer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer designerID;
-    @NotEmpty(message = "ops!! the Name is Empty")
-    private String designerName;
-    @Email(message = "the Email invalid")
-    private  String designerEmail;
-    private String designerNationality;
+    @Embedded
+    DesignerIformation designerIformation;
+
+
+
 
     public void setDesignerID(Integer designerID) {
         this.designerID = designerID;
