@@ -5,4 +5,5 @@ import com.project.mid.VideoGame.model.Game;
 public interface IGameService {
     public Game getGamerById(Integer gameID);
     public void updateGame( Game game, Integer gameID);
+    public void deleteGame(Integer gameID);
 }

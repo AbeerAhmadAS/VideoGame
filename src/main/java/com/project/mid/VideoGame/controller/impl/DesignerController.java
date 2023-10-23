@@ -42,6 +42,11 @@ public class DesignerController implements IDedignerController {
     public void updateDesigner(@RequestBody @Valid Designer designer, @PathVariable Integer designerID) {
         iDesignerService.updateDesigner(designer, designerID);
     }
-
+    /////////////////////////////////DELETE////////////////////////////////////////////////////
+    @DeleteMapping("/designer/{designerID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteDesigner(@PathVariable Integer designerID) {
+        iDesignerService.deleteDesigner(designerID);
+    }
 
 }

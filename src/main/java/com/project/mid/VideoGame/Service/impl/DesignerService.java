@@ -15,12 +15,14 @@ import java.util.Optional;
 public class DesignerService implements IDesignerService {
     @Autowired
     DesignerRepository designerRepository;
+    @Override
     public Designer getDesignerById(Integer designerID){
         Optional<Designer> designerOptional=designerRepository.findById(designerID);
         if(designerOptional.isEmpty())return  null;
         return designerOptional.get();
 
     }
+    @Override
     public void updateDesigner( Designer designer, Integer designerID){
         Optional<Designer> designerOptional=designerRepository.findById(designerID);
         if(designerOptional.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "patient " + designerID + " not found") ;
@@ -28,4 +30,11 @@ public class DesignerService implements IDesignerService {
         designerRepository.save(designer);
 
     }
+    @Override
+    public void deleteDesigner(Integer designerID) {
+        Optional<Designer> designerOptional = designerRepository.findById(designerID);
+        if (designerOptional.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + designerID + " not found");
+        designerRepository.deleteById(designerID);
+    }
+
 }

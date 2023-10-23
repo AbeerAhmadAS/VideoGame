@@ -15,17 +15,25 @@ import java.util.Optional;
 public class GameService implements IGameService {
     @Autowired
     GameRepository gameRepository;
+    @Override
     public Game getGamerById(Integer gameID){
         Optional<Game> gameOptional=gameRepository.findById(gameID);
         if(gameOptional.isEmpty())return  null;
         return gameOptional.get();
 
     }
+    @Override
     public void updateGame( Game game, Integer gameID){
-        Optional<Game> gameOptionalOptional=gameRepository.findById(gameID);
-        if(gameOptionalOptional.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "patient " + gameID + " not found") ;
+        Optional<Game> gameOptional=gameRepository.findById(gameID);
+        if(gameOptional.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "patient " + gameID + " not found") ;
         game.setGameID(gameID);
         gameRepository.save(game);
 
+    }
+    @Override
+    public void deleteGame(Integer gameID) {
+        Optional<Game> gameOptional = gameRepository.findById(gameID);
+        if (gameOptional.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + gameID + " not found");
+        gameRepository.deleteById(gameID);
     }
 }

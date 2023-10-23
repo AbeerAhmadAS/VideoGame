@@ -43,5 +43,11 @@ public class GameController implements IGameController {
       public void updateGame(@RequestBody @Valid Game game, @PathVariable Integer gameID) {
            iGameService.updateGame(game,gameID);
 }
+    /////////////////////////////////DELETE////////////////////////////////////////////////////
+    @DeleteMapping("/Games/{gameID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteGame(@PathVariable Integer gameID) {
+        iGameService.deleteGame(gameID);
+    }
 
 }
