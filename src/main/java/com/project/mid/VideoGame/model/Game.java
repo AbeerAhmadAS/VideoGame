@@ -29,4 +29,12 @@ public class Game {
     public void setGameID(Integer gameID) {
         this.gameID = gameID;
     }
+
+    public Designer getDesigner() {
+        return designer;
+    }
+
+    public void setGamePrice(Integer gamePrice) {
+        this.gamePrice = gamePrice;
+    }
 }

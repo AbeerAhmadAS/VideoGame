@@ -3,8 +3,11 @@ package com.project.mid.VideoGame.controller.impl;
 import com.project.mid.VideoGame.Repository.DesignerRepository;
 import com.project.mid.VideoGame.Repository.PlayerRepository;
 import com.project.mid.VideoGame.Service.Interface.IPlayerService;
+import com.project.mid.VideoGame.controller.DTO.GamePriceDTO;
+import com.project.mid.VideoGame.controller.DTO.PlayerAgeDTO;
 import com.project.mid.VideoGame.controller.Interface.IPlayerController;
 import com.project.mid.VideoGame.model.Designer;
+import com.project.mid.VideoGame.model.Game;
 import com.project.mid.VideoGame.model.Player;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +36,25 @@ public class PlayerController implements IPlayerController {
     public List<Player> getAllPlayer(){
         return  playerRepository.findAll();
     }
-//GET BY ID
+
+
+
+    //GET BY ID
     @GetMapping("/player/{playerID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Player getPlayerById(@PathVariable Integer playerID){
         return iPlayerService.getPlayerById(playerID);
     }
+
+    //////////////////////////////////////////////////
+    /*@GetMapping("/player/{gameName}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public List<Player> getPlayerByGameName(@PathVariable String gameName) {
+        return playerRepository.getPlayerByGameName(gameName);
+    }*/
+
+
+
     /////////////////////////////////////////PUT//////////////////////////////////
     @PutMapping("/player/{playerID}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -47,8 +63,13 @@ public class PlayerController implements IPlayerController {
     }
 
 
-    /////////////////////////////////////PATCH////////////////////////////////////
 
+    /////////////////////////////////////PATCH////////////////////////////////////
+    @PatchMapping("/player/playerAge/{playerID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePlayerAge(@RequestBody @Valid PlayerAgeDTO playerAgeDTO, @PathVariable (name = "playerID" )Integer playerID){
+        iPlayerService.updatePlayerAge(playerAgeDTO.getPlayerAge(),playerID);
+    }
 
     /////////////////////////////////////////DELETE////////////////////////////////////
     @DeleteMapping("/player/{playerID}")

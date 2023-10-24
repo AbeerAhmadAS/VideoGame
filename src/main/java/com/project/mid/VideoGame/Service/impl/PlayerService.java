@@ -3,6 +3,7 @@ package com.project.mid.VideoGame.Service.impl;
 import com.project.mid.VideoGame.Repository.PlayerRepository;
 import com.project.mid.VideoGame.Service.Interface.IPlayerService;
 import com.project.mid.VideoGame.model.Designer;
+import com.project.mid.VideoGame.model.Game;
 import com.project.mid.VideoGame.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,14 @@ public class PlayerService implements IPlayerService {
         Optional<Player> PlayerOptional = playerRepository.findById(playerID);
         if (PlayerOptional.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + playerID + " not found");
         playerRepository.deleteById(playerID);
+    }
+    @Override
+    public void updatePlayerAge(Integer age, Integer playerID){
+        Optional<Player>playerAge=playerRepository.findById(playerID);
+        if(playerAge.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee " + playerID + " not found") ;
+        Player player=playerAge.get();
+        player.setPlayerAge(age);
+        playerRepository.save(player);
     }
 }
 

@@ -2,9 +2,8 @@ package com.project.mid.VideoGame.controller.impl;
 
 import com.project.mid.VideoGame.Repository.GameRepository;
 import com.project.mid.VideoGame.Service.Interface.IGameService;
-import com.project.mid.VideoGame.Service.impl.GameService;
+import com.project.mid.VideoGame.controller.DTO.GamePriceDTO;
 import com.project.mid.VideoGame.controller.Interface.IGameController;
-import com.project.mid.VideoGame.model.Designer;
 import com.project.mid.VideoGame.model.Game;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,19 +27,42 @@ public class GameController implements IGameController {
     }
    ///////////////////////////////////GET/////////////////////////////////////////////////
     //GET ALL GAMES
-    @GetMapping("/Games")
+    @GetMapping("/games")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Game> grtAllGames(){
         return  gameRepository.findAll();
     }
     //GET GAME BY ID
-    @GetMapping("/Games/{gameID}")
+    @GetMapping("/games/{gameID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Game getGameById(@PathVariable Integer gameID){
         return iGameService.getGamerById(gameID);
     }
 
-    //BY NAME OF GAME RETURN THE OF DESIGNER
+    //get game by name of device that running the game
+   /* @GetMapping("/games/{deviceGameRunningOn}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void getGameByDevice(@PathVariable String deviceGameRunningOn){
+          iGameService.getGameByDevice(deviceGameRunningOn);
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     ///////////////////////////////PUT////////////////////////////////////////////////
@@ -54,6 +76,12 @@ public class GameController implements IGameController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteGame(@PathVariable Integer gameID) {
         iGameService.deleteGame(gameID);
+    }
+    ///////////////////////////////////PUTCH/////////////////////
+    @PatchMapping("/Games/gamePrice/{gameID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateGamePrice(@RequestBody @Valid GamePriceDTO gamePriceDTO, @PathVariable (name = "gameID" )Integer gameID){
+        iGameService.updateGamePrice(gamePriceDTO.getGamePrice(),gameID);
     }
 
 }

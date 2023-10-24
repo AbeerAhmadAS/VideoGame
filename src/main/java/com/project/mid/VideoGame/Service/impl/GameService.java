@@ -2,38 +2,63 @@ package com.project.mid.VideoGame.Service.impl;
 
 import com.project.mid.VideoGame.Repository.GameRepository;
 import com.project.mid.VideoGame.Service.Interface.IGameService;
-import com.project.mid.VideoGame.model.Designer;
 import com.project.mid.VideoGame.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class GameService implements IGameService {
     @Autowired
     GameRepository gameRepository;
+
     @Override
-    public Game getGamerById(Integer gameID){
-        Optional<Game> gameOptional=gameRepository.findById(gameID);
-        if(gameOptional.isEmpty())return  null;
+    public Game getGamerById(Integer gameID) {
+        Optional<Game> gameOptional = gameRepository.findById(gameID);
+        if (gameOptional.isEmpty()) return null;
         return gameOptional.get();
 
     }
+
     @Override
-    public void updateGame( Game game, Integer gameID){
-        Optional<Game> gameOptional=gameRepository.findById(gameID);
-        if(gameOptional.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "patient " + gameID + " not found") ;
+    public void updateGame(Game game, Integer gameID) {
+        Optional<Game> gameOptional = gameRepository.findById(gameID);
+        if (gameOptional.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "patient " + gameID + " not found");
         game.setGameID(gameID);
         gameRepository.save(game);
 
     }
+
     @Override
     public void deleteGame(Integer gameID) {
         Optional<Game> gameOptional = gameRepository.findById(gameID);
-        if (gameOptional.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + gameID + " not found");
+        if (gameOptional.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + gameID + " not found");
         gameRepository.deleteById(gameID);
     }
+
+    /*@Override
+    public List<Game> getGameByDevice(String deviceGameRunningOn){
+        List<Game>gameList=gameRepository.findByDeviceGameRunningOn(deviceGameRunningOn);
+        if (gameList.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + deviceGameRunningOn + " not found");
+        return gameRepository.findByDeviceGameRunningOn(deviceGameRunningOn);
+    }*/
+    @Override
+    public void updateGamePrice(Integer price, Integer gameID){
+        Optional<Game>gamePrice=gameRepository.findById(gameID);
+        if(gamePrice.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee " + gameID + " not found") ;
+        Game game=gamePrice.get();
+        game.setGamePrice(price);
+        gameRepository.save(game);
+    }
+
+
+
+
 }
