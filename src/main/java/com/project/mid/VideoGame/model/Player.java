@@ -27,8 +27,8 @@ public class Player {
     @Min(value = 10, message = "The AGE of player cannot be less than 10 years")
     private Integer playerAge;
     @ManyToOne
-    @JoinColumn(name = "play_by")
-    private Game game;
+    @JoinColumn(name = "game_by")
+    private Game gameBy;
 
 
 

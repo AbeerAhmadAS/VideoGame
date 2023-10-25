@@ -15,5 +15,6 @@ public interface IPlayerController {
 
 
     public List<Player> getAllPlayer();
-    //public List<Player> getPlayerByGameName(String gameName);
+
+    public List<Player> getPlayerByGameGameName(String gameName);
 }

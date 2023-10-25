@@ -20,7 +20,7 @@ public class GameController implements IGameController {
     @Autowired
     IGameService iGameService;
     ///////////////////////////////POST//////////////////////////////////////////
-    @PostMapping("/Games")
+    @PostMapping("/games")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void saveGames(@RequestBody @Valid Game game){
         gameRepository.save(game);
@@ -33,21 +33,24 @@ public class GameController implements IGameController {
         return  gameRepository.findAll();
     }
     //GET GAME BY ID
-    @GetMapping("/games/{gameID}")
+    @GetMapping("/games/id/{gameID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Game getGameById(@PathVariable Integer gameID){
         return iGameService.getGamerById(gameID);
     }
 
     //get game by name of device that running the game
-   /* @GetMapping("/games/{deviceGameRunningOn}")
+   @GetMapping("/games/{deviceGameRunningOn}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void getGameByDevice(@PathVariable String deviceGameRunningOn){
-          iGameService.getGameByDevice(deviceGameRunningOn);
-    }*/
+    public List<Game> findAllByDeviceGameRunningOn(@PathVariable String deviceGameRunningOn){
+         return iGameService.findAllByDeviceGameRunningOn(deviceGameRunningOn);
+    }
 
 
-
+    @GetMapping("/games/designerName/{designerName}")
+    public List<Game> getGameByDesignerDesignerName(@PathVariable String designerName) {
+        return iGameService.getGameByDesignerDesignerName(designerName);
+    }
 
 
 

@@ -24,16 +24,13 @@ public class Game {
     private Integer gamePrice;
     private String deviceGameRunningOn;
     @OneToOne
-    private Designer designer;
+    @JoinColumn(name = "design_by")
+    private Designer designBy;
 
     public void setGameID(Integer gameID) {
         this.gameID = gameID;
     }
-
-    public Designer getDesigner() {
-        return designer;
-    }
-
+    public Designer getDesignBy() {return designBy;}
     public void setGamePrice(Integer gamePrice) {
         this.gamePrice = gamePrice;
     }

@@ -3,6 +3,7 @@ package com.project.mid.VideoGame.Service.impl;
 import com.project.mid.VideoGame.Repository.GameRepository;
 import com.project.mid.VideoGame.Service.Interface.IGameService;
 import com.project.mid.VideoGame.model.Game;
+import com.project.mid.VideoGame.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -42,13 +43,12 @@ public class GameService implements IGameService {
         gameRepository.deleteById(gameID);
     }
 
-    /*@Override
-    public List<Game> getGameByDevice(String deviceGameRunningOn){
-        List<Game>gameList=gameRepository.findByDeviceGameRunningOn(deviceGameRunningOn);
-        if (gameList.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + deviceGameRunningOn + " not found");
-        return gameRepository.findByDeviceGameRunningOn(deviceGameRunningOn);
-    }*/
+    @Override
+    public List<Game> findAllByDeviceGameRunningOn(String deviceGameRunningOn){
+        List<Game>gameList=gameRepository.findAllByDeviceGameRunningOn(deviceGameRunningOn);
+        if (gameList.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course " + deviceGameRunningOn + " not found");
+        return gameList;
+    }
     @Override
     public void updateGamePrice(Integer price, Integer gameID){
         Optional<Game>gamePrice=gameRepository.findById(gameID);
@@ -56,6 +56,14 @@ public class GameService implements IGameService {
         Game game=gamePrice.get();
         game.setGamePrice(price);
         gameRepository.save(game);
+    }
+
+    public List<Game> getGameByDesignerDesignerName(String designerName) {
+        List<Game>gameList=gameRepository.findByDesignByDesignerIformationDesignerName(designerName);
+        if(gameList.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "designer" +designerName + " not found") ;
+        return gameList;
+
+
     }
 
 

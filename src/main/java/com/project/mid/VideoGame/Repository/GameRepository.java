@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface GameRepository extends JpaRepository<Game,Integer> {
     //Optional<Player>findGameByName(String gameName);
 
-    //List<Game> findByDeviceGameRunningOn(String deviceGameRunningOn);
+    List<Game> findAllByDeviceGameRunningOn(String deviceGameRunningOn);
+    List<Game> findByDesignByDesignerIformationDesignerName(String designerName);
 }

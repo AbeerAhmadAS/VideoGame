@@ -47,11 +47,11 @@ public class PlayerController implements IPlayerController {
     }
 
     //////////////////////////////////////////////////
-    /*@GetMapping("/player/{gameName}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public List<Player> getPlayerByGameName(@PathVariable String gameName) {
-        return playerRepository.getPlayerByGameName(gameName);
-    }*/
+
+    @GetMapping("/player/gameName/{gameName}")
+    public List<Player> getPlayerByGameGameName(@PathVariable String gameName) {
+        return iPlayerService.getPlayerByGameGameName(gameName);
+    }
 
 
 

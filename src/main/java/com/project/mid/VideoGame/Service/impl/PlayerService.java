@@ -8,8 +8,10 @@ import com.project.mid.VideoGame.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,6 +46,14 @@ public class PlayerService implements IPlayerService {
         Player player=playerAge.get();
         player.setPlayerAge(age);
         playerRepository.save(player);
+    }
+   @Override
+    public List<Player> getPlayerByGameGameName( String gameName) {
+        List<Player>PlayerList=playerRepository.findByGameByGameName(gameName);
+        if(PlayerList.isEmpty())throw new ResponseStatusException(HttpStatus.NOT_FOUND, "game " + gameName + " not found") ;
+        return PlayerList;
+
+
     }
 }
 
