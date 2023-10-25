@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Embeddable
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Data
 public class DesignerIformation {
 
@@ -18,4 +18,22 @@ public class DesignerIformation {
     @Email(message = "the Email invalid")
     private  String designerEmail;
     private String designerNationality;
+
+    public void setDesignerName(String designerName) {
+        this.designerName = designerName;
+    }
+
+    public void setDesignerNationality(String designerNationality) {
+        this.designerNationality = designerNationality;
+    }
+
+    public String getDesignerName() {
+        return designerName;
+    }
+
+    public DesignerIformation(String designerName, String designerEmail, String designerNationality) {
+        this.designerName = designerName;
+        this.designerEmail = designerEmail;
+        this.designerNationality = designerNationality;
+    }
 }

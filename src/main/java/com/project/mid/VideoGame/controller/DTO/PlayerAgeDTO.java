@@ -11,4 +11,11 @@ public class PlayerAgeDTO {
     public Integer getPlayerAge() {
         return playerAge;
     }
+
+    public PlayerAgeDTO() {
+    }
+
+    public PlayerAgeDTO(Integer playerAge) {
+        this.playerAge = playerAge;
+    }
 }

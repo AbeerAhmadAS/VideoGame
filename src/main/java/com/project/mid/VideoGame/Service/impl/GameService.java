@@ -3,7 +3,6 @@ package com.project.mid.VideoGame.Service.impl;
 import com.project.mid.VideoGame.Repository.GameRepository;
 import com.project.mid.VideoGame.Service.Interface.IGameService;
 import com.project.mid.VideoGame.model.Game;
-import com.project.mid.VideoGame.model.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

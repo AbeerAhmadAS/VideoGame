@@ -27,11 +27,32 @@ public class Game {
     @JoinColumn(name = "design_by")
     private Designer designBy;
 
+    public Integer getGameID() {
+        return gameID;
+    }
+
     public void setGameID(Integer gameID) {
         this.gameID = gameID;
     }
     public Designer getDesignBy() {return designBy;}
     public void setGamePrice(Integer gamePrice) {
         this.gamePrice = gamePrice;
+    }
+
+    public Game( String gameName, String gameType, Integer gamePrice, String deviceGameRunningOn, Designer designBy) {
+
+        this.gameName = gameName;
+        this.gameType = gameType;
+        this.gamePrice = gamePrice;
+        this.deviceGameRunningOn = deviceGameRunningOn;
+        this.designBy = designBy;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public String getDeviceGameRunningOn() {
+        return deviceGameRunningOn;
     }
 }

@@ -21,8 +21,9 @@ public class GameController implements IGameController {
     IGameService iGameService;
     ///////////////////////////////POST//////////////////////////////////////////
     @PostMapping("/games")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveGames(@RequestBody @Valid Game game){
+
         gameRepository.save(game);
     }
    ///////////////////////////////////GET/////////////////////////////////////////////////
@@ -69,19 +70,19 @@ public class GameController implements IGameController {
 
 
     ///////////////////////////////PUT////////////////////////////////////////////////
-      @PutMapping("/Games/{gameID}")
+      @PutMapping("/games/{gameID}")
       @ResponseStatus(HttpStatus.NO_CONTENT)
       public void updateGame(@RequestBody @Valid Game game, @PathVariable Integer gameID) {
            iGameService.updateGame(game,gameID);
 }
     /////////////////////////////////DELETE////////////////////////////////////////////////////
-    @DeleteMapping("/Games/{gameID}")
+    @DeleteMapping("/games/{gameID}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteGame(@PathVariable Integer gameID) {
         iGameService.deleteGame(gameID);
     }
     ///////////////////////////////////PUTCH/////////////////////
-    @PatchMapping("/Games/gamePrice/{gameID}")
+    @PatchMapping("/games/gamePrice/{gameID}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateGamePrice(@RequestBody @Valid GamePriceDTO gamePriceDTO, @PathVariable (name = "gameID" )Integer gameID){
         iGameService.updateGamePrice(gamePriceDTO.getGamePrice(),gameID);

@@ -2,9 +2,10 @@ package com.project.mid.VideoGame.controller.impl;
 
 import com.project.mid.VideoGame.Repository.DesignerRepository;
 import com.project.mid.VideoGame.Service.Interface.IDesignerService;
+import com.project.mid.VideoGame.controller.DTO.DesignerNameDTO;
+import com.project.mid.VideoGame.controller.DTO.GamePriceDTO;
 import com.project.mid.VideoGame.controller.Interface.IDedignerController;
 import com.project.mid.VideoGame.model.Designer;
-import com.project.mid.VideoGame.model.Game;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class DesignerController implements IDedignerController {
     IDesignerService iDesignerService;
     /////////////////////////POST////////////////////////////////////////
     @PostMapping("/designer")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public void saveDesigner(@RequestBody @Valid Designer designer){
         designerRepository.save(designer);
     }
@@ -38,6 +39,11 @@ public class DesignerController implements IDedignerController {
     public Designer getDesignerById(@PathVariable Integer designerID){
         return iDesignerService.getDesignerById(designerID);
     }
+    @GetMapping("/designer/designerName/{designerName}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public Designer findAllByDesignerIformationDesignerName(@PathVariable String designerName){
+        return iDesignerService.findAllByDesignerIformationDesignerName(designerName);
+    }
     //BY NAME OF GAME RETURN THE OF DESIGNER
 
     /////////////////////////////PUT//////////////////////////////////////////////
@@ -53,4 +59,9 @@ public class DesignerController implements IDedignerController {
         iDesignerService.deleteDesigner(designerID);
     }
 
+    @PatchMapping("/designer/designerName/{designerID}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateDesignerName(@RequestBody @Valid DesignerNameDTO designerNameDTO, @PathVariable (name = "designerID" )Integer designerName){
+        iDesignerService.updateDesignerName(designerNameDTO.getDesignerName(),designerName);
+    }
 }

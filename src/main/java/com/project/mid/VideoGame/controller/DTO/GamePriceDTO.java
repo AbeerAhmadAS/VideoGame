@@ -11,4 +11,11 @@ public class GamePriceDTO {
     public Integer getGamePrice() {
         return gamePrice;
     }
+
+    public GamePriceDTO() {
+    }
+
+    public GamePriceDTO(Integer gamePrice) {
+        this.gamePrice = gamePrice;
+    }
 }

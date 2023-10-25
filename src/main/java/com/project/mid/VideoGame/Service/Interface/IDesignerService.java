@@ -6,4 +6,6 @@ public interface IDesignerService {
     public Designer getDesignerById(Integer designerID);
     public void updateDesigner( Designer designer, Integer designerID);
     public void deleteDesigner(Integer designerID);
+    public Designer findAllByDesignerIformationDesignerName(String designerName);
+    public void updateDesignerName(String designerName, Integer designerID);
 }
