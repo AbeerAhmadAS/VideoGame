@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +30,7 @@ class GameRepositoryTest {
     @BeforeEach
     public void setUp() {
 
-            gameRepository.save(game);
+            //gameRepository.save(game);
 
 
     }
@@ -39,26 +41,23 @@ class GameRepositoryTest {
         gameRepository.delete(game);
     }
 
-    /*@Test
-    public void findAllByDeviceGameRunningOn() {
-        String deviceGameRunningOn = "Chrome Valley Customs";
-        List<Game> gameOptional = gameRepository.findAllByDeviceGameRunningOn(deviceGameRunningOn);
-        System.out.println(gameOptional);
-        assertEquals(deviceGameRunningOn, gameOptional);
-    }
-
-
     @Test
-    public void findAllByDeviceGameRunningOn_validName_correctGame() {
-        List<Game> gameList = gameRepository.findAllByDeviceGameRunningOn("PC");
+    public void findAllByDeviceGameRunningOn() {
+        String deviceGameRunningOn = "PC";
+        List<Game> gameList = gameRepository.findAllByDeviceGameRunningOn(deviceGameRunningOn);
+        if(gameList.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The device " + deviceGameRunningOn + " not found");
         System.out.println(gameList);
-        assertEquals(1, gameList.size());
+        assertEquals(deviceGameRunningOn, gameList.get(0).getDeviceGameRunningOn());
     }
+
+
+
+
     @Test
     public void findByDesignByDesignerIformationDesignerName(){
         List<Game> gameList = gameRepository.findByDesignByDesignerIformationDesignerName("Abeer");
         System.out.println(gameList);
         assertEquals(1, gameList.size());
 
-    }*/
+    }
 }

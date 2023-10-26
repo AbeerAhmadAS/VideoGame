@@ -55,4 +55,8 @@ public class Game {
     public String getDeviceGameRunningOn() {
         return deviceGameRunningOn;
     }
+
+    public String getGameName() {
+        return gameName;
+    }
 }
