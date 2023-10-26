@@ -26,7 +26,7 @@ public class PlayerController implements IPlayerController {
     IPlayerService iPlayerService;
     /////////////////////////////////POST//////////////////////////////////
     @PostMapping("/player")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public void savePlayer(@RequestBody Player player){
         playerRepository.save(player);
     }
@@ -40,7 +40,7 @@ public class PlayerController implements IPlayerController {
 
 
     //GET BY ID
-    @GetMapping("/player/{playerID}")
+    @GetMapping("/player/id/{playerID}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Player getPlayerById(@PathVariable Integer playerID){
         return iPlayerService.getPlayerById(playerID);

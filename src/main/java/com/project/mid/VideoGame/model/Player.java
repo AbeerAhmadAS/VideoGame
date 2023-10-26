@@ -30,7 +30,20 @@ public class Player {
     @JoinColumn(name = "game_by")
     private Game gameBy;
 
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
 
+    public Player(String playerName, String playerEmail, Integer playerAge, Game gameBy) {
+        this.playerName = playerName;
+        this.playerEmail = playerEmail;
+        this.playerAge = playerAge;
+        this.gameBy = gameBy;
+    }
+
+    public Integer getPlayerID() {
+        return playerID;
+    }
 
     public void setPlayerID(Integer playerID) {
         this.playerID = playerID;
