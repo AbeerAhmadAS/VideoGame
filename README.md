@@ -132,7 +132,7 @@ POST/player: Add new player.
 ## UML
 
 | Database                                                 | Class      
-|----------------------------------------------------------|------------| <img width="355" alt="image" src="https://github.com/AbeerAhmadAS/VideoGame/assets/141168203/b366be53-1189-4ef4-85c6-449d7adb6879"> | ![image](https://github.com/AbeerAhmadAS/VideoGame/assets/141168203/db8696ec-1e2c-431a-9646-c03e11b21cf0)
+|----------------------------------------------------------|------------| <img width="355" alt="image" src="https://github.com/AbeerAhmadAS/VideoGame/assets/141168203/b366be53-1189-4ef4-85c6-449d7adb6879"> |<img width="355" alt="image" src="https://github.com/AbeerAhmadAS/VideoGame/assets/141168203/db8696ec-1e2c-431a-9646-c03e11b21cf0">
 
 | Use case                                  | Database                                                 | Class      
 |-------------------------------------------|----------------------------------------------------------|------------
