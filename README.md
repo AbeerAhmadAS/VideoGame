@@ -147,7 +147,7 @@ The project uses a PostgreSQL database, and you may need to configure the databa
 
 ## Resources
 [online visual paradigm](https://online.visual-paradigm.com/)
-[Google Slides](https://docs.google.com/)
+[Google Slides](https://www.google.com/slides/about/)
 [slidesgo](https://slidesgo.com/)
 [ChatGPT](https://chat.openai.com/)
 
@@ -155,4 +155,4 @@ The project uses a PostgreSQL database, and you may need to configure the databa
 ## Contact
 For any questions or inquiries related to this project, you can contact the project maintainer:
 
-GitHub: [HUDAAYOUB](https://github.com/AbeerAhmadAS)
+GitHub: [AbeerAhmadAS](https://github.com/AbeerAhmadAS)
