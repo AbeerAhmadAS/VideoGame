@@ -146,15 +146,13 @@ POST/player: Add new player.
 The project uses a PostgreSQL database, and you may need to configure the database connection details in the application.properties file. Additionally, the project includes validation constraints and error messages for input data, which you can customize if needed.
 
 ## Resources
-
-[wikipedia](https://www.wikipedia.org/)
-[Code Java](https://www.codejava.net/spring-boot-tutorials)
-[Java T point](https://www.javatpoint.com/)
-[Canva](https://www.canva.com/)
+[online visual paradigm](https://online.visual-paradigm.com/)
+[Google Slides](https://docs.google.com/)
+[slidesgo](https://slidesgo.com/)
 [ChatGPT](https://chat.openai.com/)
 
 
 ## Contact
 For any questions or inquiries related to this project, you can contact the project maintainer:
 
-GitHub: [HUDAAYOUB](https://github.com/HUDAAYOUB)
+GitHub: [HUDAAYOUB](https://github.com/AbeerAhmadAS)
