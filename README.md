@@ -4,7 +4,7 @@
 ![Java](https://img.shields.io/badge/Java-11-green)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.5-blue)
 
-This repository contains a game library code project built with Java and Spring Boot. The project is designed to manage and organize information about video games, including details such as title, platform, genre, release year, and user reviews. It also allows users to interact with the library by adding, updating, and deleting games.
+This repository contains Video Game System project built with Java and Spring Boot. The project is designed to manage and organize information about video games, including details about designer, game and player. It also allows  different users to interact with each other.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -20,14 +20,13 @@ This repository contains a game library code project built with Java and Spring 
 
 ## Overview
 
-This game library code project is built using Java and Spring Boot, and it provides a RESTful API for managing video game information. It allows users to create, read, update, and delete game entries, as well as search for games by various criteria like title and genre. The project also includes user management, where users can create accounts and associate games with their profiles.
-
+This video game System project is built using Java and Spring Boot, and it provides a RESTful API for managing video game system information. It allows adding, modifying, and deleting a designer. It also allows games with the ability to link them to their own designer. It can also create multiple players with the ability to link them to several games.
 ## Features
-- Game Management: The project allows users to add, update, and delete game entries. Game details include title, platform, genre, release year, status, rating, developers, play mode, and designer.
+- Designers: The user can add a new designer by entering all his data, and he can also modify it and delete this designer.
 
-- User Management: Users can create accounts, and each user can have their own library of games.
+- Game: The user can enter a new game, adding all its data, linking it to a designer, and he can also delete it.
 
-- Search Functionality: Users can search for games by title, platform, and genre.
+- Player: The user can enter a new player and also enter all his data with the ability to link him to the games he prefers.
 
 ## Getting Started
 
@@ -40,66 +39,96 @@ To get started with this project, you will need to have Java and Spring Boot set
    cd your-game-library
 
 ## Code Structure
-Controllers:
 
-GameLibraryController.java: Manages endpoints related to game operations.
-UserController.java: Handles user-related endpoints.
-Model:
+### Controllers:
 
-GamesLibrary.java: Represents the game entity with attributes like title, platform, genre, and more.
-User.java: Represents user information including username, email, and password.
+- DesignerController.java: Manages endpoints related to designer operations.
+- GameController.java: Manages endpoints related to game operations
+- PlayerController.java: Handles Player-related endpoints.
+  
+### Model:
 
-Repository:
+- Designer.java: Represents the designer entity with attributes like id, name, email, and nationality.
+- game.java: Represents the game entity with attributes like id, name, type, and device Game Running On.
+- player.java: Represents the player entity with attributes like id, name, email, and age.
 
-GameLibraryRepository.java: Provides data access methods for the GamesLibrary entity.
-UserRepository.java: Offers data access methods for the User entity.
-Service:
+### Repository:
 
-GameLibraryService.java: Contains business logic for game-related operations.
-UserService.java: Implements business logic for user-related operations.
-Resources:
+- DesignerRepository.java: Provides data access methods for the Designer entity.
+- GameRepository.java: Provides data access methods for the Game entity.
+- PlayerRepository.java: Provides data access methods for the Player entity.
 
-application.properties: Configuration file for setting up the database and other properties.
-Tests:
+### Service:
 
-Unit test classes for controllers, repositories, and services.
-Other Project Files:
+- DesignerService.java: Contains business logic for designer-related operations.
+- GameService.java: Implements business logic for game-related operations.
+- PlayerService.java: Implements business logic for Player-related operations.
+
+### Resources:
+
+- application.properties: Configuration file for setting up the database and other properties.
+
+  
+### Tests:
+
+- Unit test classes for controllers, repositories.
+  
+### Other Project Files:
 
 
-pom.xml: Maven configuration file for project dependencies and build settings.
-Other project-specific files and directories as needed.
+- pom.xml: Maven configuration file for project dependencies and build settings.
+- Other project-specific files and directories as needed.
 
 ## Usage
 
 To use this project, you can interact with the API endpoints through tools like Postman or by creating your own front-end application. Here are some sample API endpoints:
 
+GET /designer: Retrieve a list of all designers.
+
+GET /designer/{designerId}: Retrieve a specific designer by its ID.s.
+
+GET /designer/designerName/{designerName}: Retrieve a specific designer by its name.
+
+PUT/designer/{designerId} :Update an existing designer.
+
+PATCH/designer/designerName/{designerId} :Update name of designer.
+
+DELETE/designer/{designerId} : Delete designer.
+
+POST/designer: Add new designer.
+
 GET /games: Retrieve a list of all games.
 
-GET /games/search?title: search for game by its title.
+GET /games/id/{gameId}: Retrieve a specific game by its ID.s.
 
-GET /games/search1?genre: sesrch for game by its genre
+GET /game/{deviceGameRunningOn}: Retrieve a specific game by  name of device that running the game.
 
-GET /games/{id}: Retrieve a specific game by its ID.
+GET /games/designerName/{designerName}: Retrieve a specific game by  name of designer of the game.
 
-POST /games: Create a new game entry.
+PUT/games/{gameID} :Update an existing game.
 
-PATCH /games/{id}: Update an existing game entry.
+PATCH/games/gamePrice/{gameID} :Update price of game.
 
-DELETE /games/{id}: Delete a game entry.
+DELETE/games/{gameID} : Delete game .
 
-GET /users: Retrieve a list of all users.
+POST/games: Add new game.
 
-GET /users/{id}: Retrieve a specific user by their ID.
+GET /player: Retrieve a list of all players.
 
-POST /users: Create a new user.
+GET /player/id/{playerID}: Retrieve a specific player by its ID.s.
 
-PUT /users/{id}: Update an existing user.
+GET /player/gameName/{gameName}: Retrieve a specific player by  name of game.
 
-DELETE /users/{id}: Delete a user.
-## UML
+PUT/player/{playerID} :Update an existing player.
 
-| Use case                                  | Database                                                 | Class
-DELETE /users/{id}: Delete a user.
+PATCH/player/playerAge/{playerID} :Update Age of player.
+
+DELETE/player/{playerID} : Delete player .
+
+POST/player: Add new player.
+
+
+
 ## UML
 
 | Use case                                  | Database                                                 | Class      
