@@ -35,8 +35,8 @@ To get started with this project, you will need to have Java and Spring Boot set
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/your-game-library.git](https://github.com/HUDAAYOUB/ProjectGameLibrary.git)https://github.com/HUDAAYOUB/ProjectGameLibrary.git
-   cd your-game-library
+   git clone https://github.com/yourusername/your-VideoGame.git](https://github.com/AbeerAhmadAS/VideoGame.git)https://github.com/AbeerAhmadAS/VideoGame.git
+   cd your-Video-Game
 
 ## Code Structure
 
